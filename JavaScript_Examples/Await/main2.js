@@ -1,41 +1,43 @@
+myInstance = {
+  myValue: "Hello",
+  self: this,
 
-var gResolve;
-var gReject;
+  resolveAfter2Seconds: function (name) {
+    // 2. 
+    console.log("starting slow promise.");
+    return new Promise(resolve => {
+      console.log("slow promise inside"); // 3.
+      setTimeout(function (name) {
+        resolve(20);
+        console.log("slow promise is done.");
+        console.log(name);
+      }, 0, name); // 3.5 등록
+    });
+  },
 
-console.log(gResolve);
+  resolveAfter1Second: function () {
+    console.log("starting fast promise.");
+    return new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        resolve(10);
+        console.log("fast promise is done.");
+      }, 1000);
+    });
+  },
 
-function done(result){
-  console.log("Done - "+result);
-  gResolve();
+  sequentailStart: async function () {
+    console.log("==SEQUENTIAL START==");
+
+    // 1. 
+    const slow = this.resolveAfter2Seconds(this.myValue);
+    console.log(slow); // 4.
+
+    const fast = await this.resolveAfter1Second().then(function (data) {
+      console.log(`data = ${data + 30}`);
+      return "HaHa";
+    }); // 잠깐 기다림.
+    console.log(fast);
+  }
 }
 
-let promise = new Promise(function(onResolve, onReject){
- 
-    gResolve = onResolve;
-    gReject = onReject;
-  
-//  setTimeout(function(){
-//  }, 0); //wait 2000 ms
-  console.log("Clock start");
-
-})
-.then(done)
-.catch(function(result){
-  console.log("Catch - "+result);
-})
-
-  
-promise.finally(function(){
-  console.log("finally!");
-})
-
-var promise2 = Promise.resolve();
-promise2.then(() => console.log("abc"));
-
-
-gResolve("AAAAAAA");
-
-console.log(gResolve);
-
-console.log("aa");
-
+myInstance.sequentailStart();
