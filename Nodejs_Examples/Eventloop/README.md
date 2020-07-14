@@ -23,8 +23,6 @@
 
 
 ## 구조
-![Alt text](https://evan-moon.github.io/static/f9c11eeefdd25b07850636e84007db11/a4f52/nodejs-event-loop-workflow.png)
-*Image by [evan-moon's BLOG (https://evan-moon.github.io/static/f9c11eeefdd25b07850636e84007db11/a4f52/nodejs-event-loop-workflow.png)](https://blog.insiderattack.net/timers-immediates-and-process-nexttick-nodejs-event-loop-part-2-2c53fd511bb3)*
+*Image by [DEEPAL's BLOG (https://blog.insiderattack.net/timers-immediates-and-process-nexttick-nodejs-event-loop-part-2-2c53fd511bb3)](https://blog.insiderattack.net/timers-immediates-and-process-nexttick-nodejs-event-loop-part-2-2c53fd511bb3)*
 ![Alt text](https://miro.medium.com/max/1000/1*2yXbhvpf1kj5YT-m_fXgEQ.png)
 
-*Image by [DEEPAL's BLOG (https://blog.insiderattack.net/timers-immediates-and-process-nexttick-nodejs-event-loop-part-2-2c53fd511bb3)](https://blog.insiderattack.net/timers-immediates-and-process-nexttick-nodejs-event-loop-part-2-2c53fd511bb3)*
